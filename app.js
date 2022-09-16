@@ -2,6 +2,7 @@ const inputDate = document.querySelector("#dateChoosen");
 const btn = document.querySelector("#btn");
 const output = document.querySelector("#output");
 output.style.display = "none";
+const gif = document.querySelector("#gif");
 
 function checkPalindrome(str) {
   //   var dateSelected = inputDate.value;
@@ -135,26 +136,35 @@ function getNextPalindromeDate(date) {
 // console.log(getNextPalindromeDate(date));
 
 function clickHandler(e) {
-  var bdayStr = inputDate.value;
-  if (bdayStr !== "") {
-    output.style.display = "block";
-
-    var listOfDate = bdayStr.split("-");
+  if (inputDate.value === "") {
+    alert("please select valid date!");
+    return;
   }
-  var date = {
-    day: Number(listOfDate[2]),
-    month: Number(listOfDate[1]),
-    year: Number(listOfDate[0]),
-  };
+  gif.style.display = "block";
+  setTimeout(function () {
+    gif.style.display = "none";
 
-  var isPalindrome = checkPalindromeForAllDateFormats(date);
+    var bdayStr = inputDate.value;
+    if (bdayStr !== "") {
+      output.style.display = "block";
 
-  if (isPalindrome) {
-    output.innerText = "Yayyy !! Your birthday is palindrome!!";
-  } else {
-    var [ctr, nextDate] = getNextPalindromeDate(date);
-    output.innerText = `The  next palindrome date is ${nextDate.day}-${nextDate.month}-${nextDate.year}, You missed it by ${ctr} days!`;
-  }
+      var listOfDate = bdayStr.split("-");
+    }
+    var date = {
+      day: Number(listOfDate[2]),
+      month: Number(listOfDate[1]),
+      year: Number(listOfDate[0]),
+    };
+
+    var isPalindrome = checkPalindromeForAllDateFormats(date);
+
+    if (isPalindrome) {
+      output.innerText = "Yayyy !! Your birthday is palindrome!!";
+    } else {
+      var [ctr, nextDate] = getNextPalindromeDate(date);
+      output.innerText = `The  next palindrome date is ${nextDate.day}-${nextDate.month}-${nextDate.year}, You missed it by ${ctr} days!`;
+    }
+  }, 3000);
 }
 
 btn.addEventListener("click", clickHandler);
