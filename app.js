@@ -1,6 +1,7 @@
 const inputDate = document.querySelector("#dateChoosen");
 const btn = document.querySelector("#btn");
 const output = document.querySelector("#output");
+output.style.display = "none";
 
 function checkPalindrome(str) {
   //   var dateSelected = inputDate.value;
@@ -136,6 +137,8 @@ function getNextPalindromeDate(date) {
 function clickHandler(e) {
   var bdayStr = inputDate.value;
   if (bdayStr !== "") {
+    output.style.display = "block";
+
     var listOfDate = bdayStr.split("-");
   }
   var date = {

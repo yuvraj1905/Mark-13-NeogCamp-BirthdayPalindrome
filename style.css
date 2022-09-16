@@ -1,0 +1,23 @@
+:root {
+  --primary-color: #65a30d;
+  --dark-gray: #737373;
+  --off-white: #e5e5e5;
+}
+
+/* body {
+  background-color: var(--primary-color);
+  font-family: "Anek Telugu", sans-serif;
+  margin: 0px;
+} */
+.container {
+  /* background-color: var(--primary-color); */
+  max-width: 500px;
+  margin: auto;
+
+  /* padding-top: 1rem; */
+}
+.container #output {
+  border: 2px solid black;
+  margin-top: 1rem;
+  padding: 0.25rem;
+}
